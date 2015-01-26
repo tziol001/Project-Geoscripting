@@ -53,8 +53,6 @@ modisSubset <-
     if(rel){
       modisSubset_band <- modis[modis$Band == paste0("250m_16_days_",band) & as.numeric(format(modis$Date, "%Y")) == year,7:790]
       
-      ## SOS the alternative if you want to exclude dates is to select only , 7:790
-      
       modisSubset_reliability <- modis[modis$Band == "250m_16_days_pixel_reliability" & as.numeric(format(modis$Date, "%Y")) == year, 7:790]
       
       # remove clouds based on provided '250m_16_days_pixel_reliability' layer

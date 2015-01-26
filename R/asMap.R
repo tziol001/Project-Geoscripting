@@ -1,4 +1,4 @@
-## create a plot using ggplot package
+# create a plot using ggplot package
 
 asMap <-
   function(raster)
