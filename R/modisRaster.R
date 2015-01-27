@@ -1,4 +1,11 @@
-# this function....
+# Function to create a raster stack using subset MODIS data
+
+# Description: Automatically creates the extent of the selected flux towers and returns a georefernced raster stack.
+
+# parameter (type, description)
+
+# df (data.frame, Takes as input the data frame that is resulted from ModisSubset function)
+# site (Character, It can be one of the flux towers from around the world)
 
 modisRaster <-
   function(df, site)
@@ -17,12 +24,12 @@ modisRaster <-
       "+proj=sinu +lon_0=0 +x_0=0 +y_0=0+a=6371007.181 +b=6371007.181+units=m +no_defs"
     
     # convert the df to rasters by using the df2raster function
-    
     rasters <- apply(X=df, 1, FUN=df2raster)
     
+    # create the stack of the rasters
     stack <- stack(rasters)
     
-    # project the stack layers by using the extent
+    # project the stack
     projection(stack)<-latlong
     
     # use the extent in the raster layer
